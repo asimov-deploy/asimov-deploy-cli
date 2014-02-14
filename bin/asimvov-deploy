@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
+process.title = 'asimov-deploy';
+
+require('../app.js');
