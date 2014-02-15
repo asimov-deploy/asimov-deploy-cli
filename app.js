@@ -2,6 +2,7 @@
 
 var program = require('commander');
 var pkg = require('./package.json');
+var userSettings = require('./userSettings');
 
 program
   .version(pkg.version);
@@ -15,19 +16,20 @@ program
 	.option('-u, --username <username>', 'Username')
 	.option('-p, --password <username>', 'Username')
 	.description('authenticate against asimov deploy')
-	.action(function(options) {
-	});
+	.action(login);
 
 program.parse(process.argv);
 
 
 function login(options) {
-	if (!(options.username && options.password)) {
+	userSettings.save();
+
+/*	if (!(options.username && options.password)) {
 		console.error();
 		console.error('  error: username and password are required');
 		console.error();
 		process.exit();
-	}
+	}*/
 }
 
 /*var restify = require('restify');
